@@ -28,4 +28,28 @@ module.exports = class AuthService {
         }
         
     }
+
+    async login(data) {
+        const { email } = data
+
+        try{
+            const userRow = await Customer.findByEmail(email)
+            console.log(userRow)
+
+            if(!userRow){
+                console.log('error')
+                throw httpError(401, 'email or username is incorrect')
+            }
+
+            const match = await bcrypt.compare(data.password, userRow[0].password)
+            if (!match){
+                throw httpError(401, 'email or username is incorrect')
+            }
+            //everything from row including hash
+            return userRow[0]
+        }
+        catch(err){
+            throw httpError(err)
+        }
+    }
 }

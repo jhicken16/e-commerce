@@ -8,7 +8,10 @@ const bcrypt = require('bcrypt')
 const AuthService = require('../service/AuthService')
 const Authentication = new AuthService
 
-module.exports = (app) => {
+module.exports = (app, passport) => {
+
+    console.log('auth passport', passport)
+
     app.use('/auth', router)
     
     router.post('/register', async (request, response, next) => {
@@ -21,6 +24,13 @@ module.exports = (app) => {
         } catch(err){
             next(err)
         }
+    })
+
+    router.post('/login', passport.authenticate('local') ,async (request, response, next) => {
+        
+        const data = request.body
+        console.log('login triggered')
+        response.status(200).send("login supposedly successful")
     })
     
 }

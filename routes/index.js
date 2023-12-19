@@ -1,7 +1,7 @@
 const authRouter = require('./auth')
 
-module.exports = (app) => {
+module.exports = (app, passport) => {
     
-    authRouter(app)
+    authRouter(app, passport)
 
 }

@@ -43,4 +43,5 @@ module.exports = class CustomerModel {
             throw new Error(err)
         }
     }
+    
 }
