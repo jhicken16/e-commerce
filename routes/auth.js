@@ -1,10 +1,6 @@
 const express = require('express')
 const router = express.Router()
 
-//temp imports
-const db = require('../db/index')
-const bcrypt = require('bcrypt')
-
 const AuthService = require('../service/AuthService')
 const Authentication = new AuthService
 
