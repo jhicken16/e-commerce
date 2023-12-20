@@ -43,5 +43,35 @@ module.exports = class CustomerModel {
             throw new Error(err)
         }
     }
+
+    async customerById(id) {
+
+        try{
+            const response = await db.query('Select * FROM customers WHERE id = $1',
+            [id])
+            if (response.rows.length === 0){
+                return null 
+            }
+            return response.rows
+
+        }
+        catch(err){
+            throw new Error(err)
+        }
+    }
+
+    async allUsers() {
+
+        try{
+            const response = await db.query('SELECT email, name FROM customers')
+            if (response.rows.length === 0){
+                return null
+            }
+            return response.rows
+        }
+        catch(err){
+            throw new Error(err)
+        }
+    }
     
 }
