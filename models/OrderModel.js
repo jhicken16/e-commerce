@@ -55,4 +55,34 @@ module.exports = class OrderModel {
         }
 
     }
+    async getOrderTable(){
+
+        const statement = 'SELECT * FROM orders;'
+
+        try{
+            const response = await db.query(statement, [])
+            if(response.rows.length === 0){
+                return null
+            }
+            return response.rows
+        }
+        catch(err){
+            throw new Error(err)
+        }
+    }
+    async ordersById(id){
+        const statement = 'SELECT * FROM orders JOIN ordered_items ON orders.id = ordered_items.order_id WHERE customer_id = $1;'
+
+        try{
+            const response = await db.query(statement, [id])
+            if(response.rows.length === 0){
+                return null
+            }
+            return response.rows
+        }
+        catch(err){
+            console.log(err)
+            throw new Error(err)
+        }
+    }
 }
