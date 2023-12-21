@@ -7,3 +7,4 @@ change to try re-install credentials hoping that the ssh key set on git hub acco
 set me to loacal host 61519 did not log me in.
 i deleted all of them and now im going to sign back in with code.
 last try before i call it a night delet all ssh key created new one assign it to git hub account.
+had two account on same email deleted all on had nothing on it.
