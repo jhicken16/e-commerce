@@ -4,3 +4,5 @@ User name remains the same the correct on however on git hub remains
 to be the wrong user trying to sighn in with code instead of page.
 change ssh key should work now.
 change to try re-install credentials hoping that the ssh key set on git hub accout will set
+set me to loacal host 61519 did not log me in.
+i deleted all of them and now im going to sign back in with code.
